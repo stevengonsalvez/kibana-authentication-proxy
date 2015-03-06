@@ -10,17 +10,16 @@ Hosts the latest [kibana3](www.elasticsearch.org/overview/kibana/) and elasticse
 - Per-user kibana index supported. now you can use index kibana-int-userA for user A and kibana-int-userB for user B
 - Inspired by and based on [kibana-proxy](https://github.com/hmalphettes/kibana-proxy), most of the proxy libraries were written by them, thanks:)
 
-*We NO LONGER support third-party plugins such as `Bigdesk` or `Head` since it's hard to test and maintain*
-
 Installation
 =====
 
 ```
 # git clone https://github.com/fangli/kibana-authentication-proxy
 # cd kibana-authentication-proxy/
-# git submodule init
-# git submodule update
-# npm install
+// This is removed from the original # git submodule init
+// This is removed from the original # git submodule update
+# tar xzf kibana/*.tar.gz -C kibana
+# mv kibana/kibana*/* kibana
 
 // You may want to update the built-in kibana3 to the latest version, just run
 # cd kibana && git checkout master && git pull
