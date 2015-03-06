@@ -4,6 +4,7 @@
  * License: MIT
  * Copyright: Funplus Game Inc.
  * Author: Fang Li.
+ 
  * Project: https://github.com/fangli/kibana-authentication-proxy
  */
 
@@ -25,8 +26,8 @@ app.use(function(req, res, next){
 console.log('Server starting...');
 
 if (!config.base_path) {
-	config.base_path="";
-	console.log("No base_path specified in config so using /");
+        config.base_path="";
+        console.log("No base_path specified in config so using /");
 }
 
 // Index Filtering
@@ -34,9 +35,13 @@ function readAndInitIndexFilterFile() {
         global.index_filter_usregex=new Object();
         var index_filter_data=fs.readFileSync(config.index_filter_file,'utf8');
         var userregexes=index_filter_data.split('\n');
+        console.log(userregexes);
         for (var userregex in userregexes) {
             var usre=userregexes[userregex].match(/^([^:]+):(.+)/);
+            console.log("----- printing for each time this happens-------------------");
+            console.log(usre);
             if (usre) {
+                console.log("-------------------------- Everytimewe have a match--------------------");
                 global.index_filter_usregex[usre[1]]=usre[2];
             }
         }
@@ -44,11 +49,11 @@ function readAndInitIndexFilterFile() {
 
 global.index_filter_usregex=new Object();
 if (!config.index_filter_trigger) {
-	config.index_filter_trigger='^logstash-';
+        config.index_filter_trigger='^logstash-';
 }
 if (!config.index_filter_file) {
-	config.index_filter_file=false;
-	console.log("No index_filter_file specified so not using index filtering");
+        config.index_filter_file=false;
+        console.log("No index_filter_file specified so not using index filtering");
 } else {
     if ( fs.existsSync(config.index_filter_file) ) {
         console.log("index_filter_file specified, read and parsed - so using it");
@@ -60,8 +65,8 @@ if (!config.index_filter_file) {
             }
         });
     } else {
-	    config.index_filter_file=false;
-	    console.log("index_filter_file specified but not found in fs so not using index filtering");
+            config.index_filter_file=false;
+            console.log("index_filter_file specified but not found in fs so not using index filtering");
     }
 }
 
@@ -105,7 +110,7 @@ app.get(config.base_path + '/config.js', kibana3configjs);
 
 // Serve all kibana3 frontend files
 app.use(express.compress());
-app.use(config.base_path + '/', express.static(__dirname + '/kibana/src', {maxAge: config.brower_cache_maxage || 0}));
+app.use(config.base_path + '/', express.static(__dirname + '/kibana', {maxAge: config.brower_cache_maxage || 0}));
 
 
 run();
@@ -124,7 +129,7 @@ function run() {
 }
 
 function kibana3configjs(req, res) {
- 
+
 
   function getKibanaIndex() {
     var raw_index = config.kibana_es_index;

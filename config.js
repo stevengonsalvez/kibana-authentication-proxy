@@ -6,8 +6,8 @@ module.exports =  {
     "es_host": "localhost",  // The host of Elastic Search
     "es_port": 9200,  // The port of Elastic Search
     "es_using_ssl": false,  // If the ES is using SSL(https)?
-    "es_username":  "",  // The basic authentication user of ES server, leave it blank if no basic auth applied
-    "es_password":  "",  // The password of basic authentication of ES server, leave it blank if no basic auth applied.
+    "es_username":  "admin",  // The basic authentication user of ES server, leave it blank if no basic auth applied
+    "es_password":  "password",  // The password of basic authentication of ES server, leave it blank if no basic auth applied.
 
     "base_path": "/kibana",
 
@@ -15,7 +15,7 @@ module.exports =  {
     // Proxy server configurations
     ////////////////////////////////////
     // Which port listen to
-    "listen_port": 9201,
+    "listen_port": 80,
     // Control HTTP max-Age header. Whether the browser cache static kibana files or not?
     // 0 for no-cache, unit in millisecond, default to 0
     // We strongly recommand you set to a larger number such as 2592000000(a month) to get a better loading speed
@@ -41,8 +41,8 @@ module.exports =  {
     // Config "kibana_es_index": "kibana-int-for-%user%", "which_auth_type_for_kibana_index": "basic"
     // will use kibana index settings like "kibana-int-for-demo1", "kibana-int-for-demo2" for user demo1 and demo2.
     // in this case, if you enabled both Google Oauth2 and BasicAuth, and the username of BasicAuth is the boss.
-    "kibana_es_index": "kibana-int", // "kibana-int-%user%"
-    "which_auth_type_for_kibana_index": "cas", // google, cas or basic
+    "kibana_es_index": "kibana-int-%user%", //"kibana-int"
+    "which_auth_type_for_kibana_index": "basic", // google, cas or basic
 
     ////////////////////////////////////
     // Security Configurations
@@ -78,7 +78,7 @@ module.exports =  {
     // The following config is different from the previous basic auth settings.
     // It will be applied on the client who access kibana3.
     // Enable? true or false
-    "enable_basic_auth": false,
+    "enable_basic_auth": true,
     // If basic_auth_file is specified and exists, the user password combinations
     // are read from the named file and overrule the here defined settings from
     // array basic_auth_users.
@@ -86,7 +86,7 @@ module.exports =  {
     // e.g.
     // user1:password1
     // user2:password2
-    "basic_auth_file": "",
+    "basic_auth_file": "./basicauth/auth.file",
         // Multiple user/passwd supported
         // The User&Passwd list for basic auth
         "basic_auth_users": [
@@ -113,12 +113,12 @@ module.exports =  {
     //
     // which translates to userA being allowed to access only indizes which start with logstash-product- and userB
     // to be allowed to see everything which starts with logstash-
-    // "index_filter_file": "/point-to-your-index-filter-file/index.filter",
+    "index_filter_file": "./indexfilter/index.filter",
 
     // =================================
     // IndexTrigger
     // if defined is a regex which determines (most time the prefix) for which index filtering will be applied
     // this is to allow generix indizes (like /_nodes or /kibana-int-username) to pass through unfiltered
-    // "index_filter_trigger": '^logstash-',
+    "index_filter_trigger": 'mule',
 
 };
