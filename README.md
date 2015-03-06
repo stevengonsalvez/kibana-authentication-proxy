@@ -13,16 +13,16 @@ Hosts the latest [kibana3](www.elasticsearch.org/overview/kibana/) and elasticse
 Need to Install Node.js
 ===========================
 
-#Follow this link https://github.com/joyent/node/wiki/installing-node.js-via-package-manager if you need online installation
-#Else download package from http://nodejs.org/download/  (appropriate package) - extract and set the path or create a symlink 
-#cd /usr/bin
-#sudo ln -s /path/to/binary binary-name
+-Follow this link https://github.com/joyent/node/wiki/installing-node.js-via-package-manager if you need online installation
+-Else download package from http://nodejs.org/download/  (appropriate package) - extract and set the path or create a symlink 
+-cd /usr/bin
+-sudo ln -s /path/to/binary binary-name
 
 
 OFFLINE installation of npm and node.js
 =======================================
 
-if the server you want to run the application does not have internet connection - Then follow the steps listed https://www.npmjs.com/package/offline-npm#readme
+- if the server you want to run the application does not have internet connection - Then follow the steps listed https://www.npmjs.com/package/offline-npm#readme
 - The same is exported as pdf and present under offline-package in this branch
 - This project offline export is already present in offline-package 
 - To execute just follow node.js installation steps as above and steps described in the pdf to run the application
