@@ -89,6 +89,8 @@ Only makes sense when authentication is active. With this you can achieve some k
 
 Resources
 =========
+- The reference for this is  https://github.com/fangli/kibana-authentication-proxy refs/pull/18/head
+- To take a copy please do git fetch https://github.com/fangli/kibana-authentication-proxy refs/pull/18/head:originalPull18
 - The original proxy project of [kibana-proxy](https://github.com/hmalphettes/kibana-proxy)
 - [Kibana 3](http://www.elasticsearch.org/overview/kibana/) and [Elasticsearch](https://github.com/elasticsearch/elasticsearch)
 
