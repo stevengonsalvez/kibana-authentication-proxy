@@ -10,6 +10,24 @@ Hosts the latest [kibana3](www.elasticsearch.org/overview/kibana/) and elasticse
 - Per-user kibana index supported. now you can use index kibana-int-userA for user A and kibana-int-userB for user B
 - Inspired by and based on [kibana-proxy](https://github.com/hmalphettes/kibana-proxy), most of the proxy libraries were written by them, thanks:)
 
+Need to Install Node.js
+===========================
+
+#Follow this link https://github.com/joyent/node/wiki/installing-node.js-via-package-manager if you need online installation
+#Else download package from http://nodejs.org/download/  (appropriate package) - extract and set the path or create a symlink 
+#cd /usr/bin
+#sudo ln -s /path/to/binary binary-name
+
+
+OFFLINE installation of npm and node.js
+=======================================
+
+if the server you want to run the application does not have internet connection - Then follow the steps listed https://www.npmjs.com/package/offline-npm#readme
+- The same is exported as pdf and present under offline-package in this branch
+- This project offline export is already present in offline-package 
+- To execute just follow node.js installation steps as above and steps described in the pdf to run the application
+
+
 Installation
 =====
 
@@ -28,6 +46,10 @@ Installation
 // and run!
 # node app.js
 ```
+
+
+
+
 
 Configuration
 =============
@@ -86,6 +108,10 @@ Only makes sense when authentication is active. With this you can achieve some k
 
 - ``index_filter_file``: *if defined links to a flatfile in user:regex\n notation with regex applied to wished elasticsearch indizes, see also the comments in config.js*
 - ``index_filter_trigger``: *if defined is a regex which determines (most time the prefix) for which index filtering will be applied, see also the comments in config.js*
+
+Running as Service
+=====================
+copy the contents of node_init_script and paste it in a file kibana , place it under /etc/init.d/
 
 Resources
 =========
