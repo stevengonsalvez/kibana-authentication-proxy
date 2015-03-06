@@ -95,6 +95,12 @@ Resources
 - [Kibana 3](http://www.elasticsearch.org/overview/kibana/) and [Elasticsearch](https://github.com/elasticsearch/elasticsearch)
 
 
+Protection of all resources
+===========================
+- within the app.js remove change the default_rout to your dashboard json 
+- remove all other dashboards from the dashboard path
+
+
 Contributing
 ============
 - Fork it
