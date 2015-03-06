@@ -10,17 +10,16 @@ Hosts the latest [kibana3](www.elasticsearch.org/overview/kibana/) and elasticse
 - Per-user kibana index supported. now you can use index kibana-int-userA for user A and kibana-int-userB for user B
 - Inspired by and based on [kibana-proxy](https://github.com/hmalphettes/kibana-proxy), most of the proxy libraries were written by them, thanks:)
 
-*We NO LONGER support third-party plugins such as `Bigdesk` or `Head` since it's hard to test and maintain*
-
 Installation
 =====
 
 ```
 # git clone https://github.com/fangli/kibana-authentication-proxy
 # cd kibana-authentication-proxy/
-# git submodule init
-# git submodule update
-# npm install
+// This is removed from the original # git submodule init
+// This is removed from the original # git submodule update
+# tar xzf kibana/*.tar.gz -C kibana
+# mv kibana/kibana*/* kibana
 
 // You may want to update the built-in kibana3 to the latest version, just run
 # cd kibana && git checkout master && git pull
@@ -90,8 +89,16 @@ Only makes sense when authentication is active. With this you can achieve some k
 
 Resources
 =========
+- The reference for this is  https://github.com/fangli/kibana-authentication-proxy refs/pull/18/head
+- To take a copy please do git fetch https://github.com/fangli/kibana-authentication-proxy refs/pull/18/head:originalPull18
 - The original proxy project of [kibana-proxy](https://github.com/hmalphettes/kibana-proxy)
 - [Kibana 3](http://www.elasticsearch.org/overview/kibana/) and [Elasticsearch](https://github.com/elasticsearch/elasticsearch)
+
+
+Protection of all resources
+===========================
+- within the app.js remove change the default_rout to your dashboard json 
+- remove all other dashboards from the dashboard path
 
 
 Contributing
