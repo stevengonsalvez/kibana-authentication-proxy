@@ -15,7 +15,7 @@ module.exports =  {
     // Proxy server configurations
     ////////////////////////////////////
     // Which port listen to
-    "listen_port": 80,
+    "listen_port": 8080,
     // Control HTTP max-Age header. Whether the browser cache static kibana files or not?
     // 0 for no-cache, unit in millisecond, default to 0
     // We strongly recommand you set to a larger number such as 2592000000(a month) to get a better loading speed
@@ -86,7 +86,7 @@ module.exports =  {
     // e.g.
     // user1:password1
     // user2:password2
-    "basic_auth_file": "./basicauth/auth.file",
+    "basic_auth_file": "/opt/kibana3/basicauth/auth.file",
         // Multiple user/passwd supported
         // The User&Passwd list for basic auth
         "basic_auth_users": [
@@ -113,7 +113,7 @@ module.exports =  {
     //
     // which translates to userA being allowed to access only indizes which start with logstash-product- and userB
     // to be allowed to see everything which starts with logstash-
-    "index_filter_file": "./indexfilter/index.filter",
+    "index_filter_file": "/opt/kibana3/indexfilter/index.filter",
 
     // =================================
     // IndexTrigger
