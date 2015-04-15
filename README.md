@@ -14,18 +14,10 @@ Need to Install Node.js
 ===========================
 
 -Follow this link https://github.com/joyent/node/wiki/installing-node.js-via-package-manager if you need online installation
--Else download package from http://nodejs.org/download/  (appropriate package) - extract and set the path or create a symlink 
--cd /usr/bin
--sudo ln -s /path/to/binary binary-name
-
-
-OFFLINE installation of npm and node.js
-=======================================
-
-- if the server you want to run the application does not have internet connection - Then follow the steps listed https://www.npmjs.com/package/offline-npm#readme
-- The same is exported as pdf and present under offline-package in this branch
-- This project offline export is already present in offline-package 
-- To execute just follow node.js installation steps as above and steps described in the pdf to run the application
+-untar to /opt/node (or any folder) the node-v0.12.0-linux-x64.tar.gz or whatever version you have downloaded off  https://nodejs.org/download/
+-Create a softlink in /usr/bin for node and npm (ln -s <path to node> node ; ln -s <path to npm> npm)
+-within /opt do the below
+-git clone -b pull18  https://github.com/stevengonsalvez/kibana-authentication-proxy.git
 
 
 Installation
@@ -39,15 +31,38 @@ Installation
 # tar xzf kibana/*.tar.gz -C kibana
 # mv kibana/kibana*/* kibana
 
-// You may want to update the built-in kibana3 to the latest version, just run
+// You may want to update the built-in kibana3 to the latest version, just run (optional)
 # cd kibana && git checkout master && git pull
 
 // Then edit config.js, make sure you have everything checked in the config file
 // and run!
 # node app.js
+# if you get the error stating cannot find express or any dependency do the steps below
+
+### Online installation
+# npm install express
+
+### Offline installation
+// To get the node_modules folder for any project , if you do an npm install - the folder is present in the location of the project , tar it up
+
+#mkdir node_modules in the project folder (/opt/kibana-authentication-proxy)
+#copy the node_modules.tar from the offline folder to the project (node_modules) folder (cp /opt/kibana-authentication-proxy/offline/node_modules.tar /opt/kibana-authentication-proxy/node_modules)
+#tar -xvf /opt/kibana-authentication-proxy/node_modules/node_modules.tar
+#mv /opt/kibana-authentication-proxy/node_modules/node_modules/* /opt/kibana-authentication-proxy/node_modules
+#rm -rf opt/kibana-authentication-proxy/node_modules/node_modules
+
+
+
 ```
 
+Running as Service
+=====================
+copy the contents of node_init_script and paste it in a file kibana , place it under /etc/init.d/
 
+Protection of all resources
+===========================
+- within the app.js remove change the default_rout to your dashboard json 
+- remove all other dashboards from the dashboard path
 
 
 
@@ -109,9 +124,7 @@ Only makes sense when authentication is active. With this you can achieve some k
 - ``index_filter_file``: *if defined links to a flatfile in user:regex\n notation with regex applied to wished elasticsearch indizes, see also the comments in config.js*
 - ``index_filter_trigger``: *if defined is a regex which determines (most time the prefix) for which index filtering will be applied, see also the comments in config.js*
 
-Running as Service
-=====================
-copy the contents of node_init_script and paste it in a file kibana , place it under /etc/init.d/
+
 
 Resources
 =========
@@ -120,35 +133,3 @@ Resources
 - The original proxy project of [kibana-proxy](https://github.com/hmalphettes/kibana-proxy)
 - [Kibana 3](http://www.elasticsearch.org/overview/kibana/) and [Elasticsearch](https://github.com/elasticsearch/elasticsearch)
 
-
-Protection of all resources
-===========================
-- within the app.js remove change the default_rout to your dashboard json 
-- remove all other dashboards from the dashboard path
-
-
-Contributing
-============
-- Fork it
-- Create your feature branch (git checkout -b my-new-feature)
-- Commit your changes (git commit -am 'Add some feature')
-- Push to the branch (git push origin my-new-feature)
-- Create new Pull Request
-
-
-Releases
-========
-- Per-user kibana index supported
-- Fixed bug: Deprecated function alert of connect3
-- Added basic auth
-- Fixed bug: use new config for kibana3
-- Initial
-
-
-License
-=======
-kibana Authentication Proxy is freely distributable under the terms of the MIT license.
-
-Copyright (c) 2013 Fang Li, Funplus Game
-
-See LICENCE for details.
