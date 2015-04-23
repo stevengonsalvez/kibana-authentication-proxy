@@ -38,7 +38,7 @@
           ],
           "type": "text",
           "mode": "markdown",
-          "content": "![kibana](img/mns.png) \n\n ### Welcome to Integration Kibana Dashboards. \nGlad you could make it. Happy to have you here! \n##### Requirements\n* **A good browser**  \n\n\n \n##### What do we have here\n*  We have a set of prebuilt dashboards per environment:\n\n 1. [dev](index.html#/dashboard/file/integration_dev.json).\n 2. [st](index.html#/dashboard/file/integration_st.json).\n 3. [inta](index.html#/dashboard/file/integration_inta.json).\n\n *And oh !!! The dashboards for the higher environments can be found here ... [cate-all/intb/pst dashboards](http://hlxc0m0005.unix.marksandspencercate.com:8080/kibana).*\n\n *And Also !!! If the dashboards are empty it is because that environment does not have data yet.*",
+          "content": "![kibana](img/mns.png) \n\n ### Welcome to Integration Kibana Dashboards. \nGlad you could make it. Happy to have you here! \n##### Requirements\n* **A good browser**  \n\n\n \n##### What do we have here\n*  We have a set of prebuilt dashboards per environment:\n\n 1. [catea](index.html#/dashboard/file/integration_catea.json).\n 2. [cateb](index.html#/dashboard/file/integration_cateb.json).\n 3. [catel](index.html#/dashboard/file/integration_catel.json).\n 4. [intb](index.html#/dashboard/file/integration_intb.json).\n 5. [pst](index.html#/dashboard/file/integration_pst.json).\n\n *And oh !!! The dashboards for the other lower environments can be found here...\n[dev/st/inta Dashboards](http://hlxd0m004.unix.marksandspencerdev.com:8080/kibana).\n *\n\n *And Also !!! If the dashboards are empty it is because that environment does not have data yet.*",
           "style": {},
           "status": "Stable"
         }
