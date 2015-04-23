@@ -86,7 +86,7 @@ module.exports =  {
     // e.g.
     // user1:password1
     // user2:password2
-    "basic_auth_file": "/opt/kibana3/basicauth/auth.file",
+    "basic_auth_file": "/opt/kibana/basicauth/auth.file",
         // Multiple user/passwd supported
         // The User&Passwd list for basic auth
         "basic_auth_users": [
@@ -113,12 +113,12 @@ module.exports =  {
     //
     // which translates to userA being allowed to access only indizes which start with logstash-product- and userB
     // to be allowed to see everything which starts with logstash-
-    "index_filter_file": "/opt/kibana3/indexfilter/index.filter",
+    "index_filter_file": "/opt/kibana/indexfilter/index.filter",
 
     // =================================
     // IndexTrigger
     // if defined is a regex which determines (most time the prefix) for which index filtering will be applied
     // this is to allow generix indizes (like /_nodes or /kibana-int-username) to pass through unfiltered
-    "index_filter_trigger": 'mule',
+    "index_filter_trigger": 'analytics*',
 
 };

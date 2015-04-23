@@ -4,7 +4,7 @@
  * License: MIT
  * Copyright: Funplus Game Inc.
  * Author: Fang Li.
- 
+
  * Project: https://github.com/fangli/kibana-authentication-proxy
  */
 
